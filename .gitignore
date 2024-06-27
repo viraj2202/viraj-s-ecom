@@ -93,4 +93,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+#personal.txt
 personal.txt
