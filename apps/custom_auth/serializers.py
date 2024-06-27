@@ -53,6 +53,7 @@ class LoginSerializer(serializers.Serializer):
     def get_tokens_for_user(cls, user):
         refresh = RefreshToken.for_user(user)
         return {
+            'id': user.id,
             'email': user.email,
             'tokens': {
                 'access': str(refresh.access_token),
