@@ -1,0 +1,96 @@
+/personal.txt
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.mo
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# If your build process includes running collectstatic, then these file are only useful in production,
+# and will be regenerated at runtime:
+staticfiles/
+
+# local development database
+db.sqlite3
+
+# Custom stuff:
+local_settings.py
+settings.py
+config/settings/local.py
+config/settings/dev.py
+config/settings/test.py
+
+# .env files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Sentry files
+.sentryclirc
+
+# Testing
+.tox/
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+nosetests.xml
+pylint.log
+
+# Translations
+*.mo
+
+# Documentation
+*.rst
+
+# mr.developer
+.mr.developer.cfg
+.project
+
+# C extensions
+*.so
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+personal.txt
