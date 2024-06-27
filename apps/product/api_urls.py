@@ -5,6 +5,8 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r'products', api.ProductViewSet)
 router.register(r'categories', api.CategoryViewSet)
+router.register(r'reviews', api.ProductReviewViewSet)
+
 
 # The API URLs are now determined automatically by the router
 urlpatterns = [

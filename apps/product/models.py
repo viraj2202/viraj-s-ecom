@@ -31,13 +31,22 @@ class ProductImage(models.Model):
 
 
 class ProductReview(models.Model):
-    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    content = models.TextField()
-    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    RATING_CHOICES = [
+        (1, '1 - Very Poor'),
+        (2, '2 - Poor'),
+        (3, '3 - Fair'),
+        (4, '4 - Good'),
+        (5, '5 - Excellent'),
+    ]
 
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    rating = models.IntegerField(choices=RATING_CHOICES, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    review = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"Review by {self.user.username} for {self.product.name}"

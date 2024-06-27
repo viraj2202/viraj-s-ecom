@@ -28,6 +28,7 @@ urlpatterns = [
                 path('custom-auth/', include('apps.custom_auth.api_urls')),
                 path('product/', include('apps.product.api_urls')),
                 path('cart/', include('apps.cart.api_urls')),
+                path('order/', include('apps.order.api_urls')),
             ]
         )
     ),

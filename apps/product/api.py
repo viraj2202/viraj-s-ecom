@@ -1,7 +1,7 @@
 # views.py
 from rest_framework import viewsets, status, filters
-from .models import Product, Category, ProductImage
-from .serializers import ProductSerializer, CategorySerializer
+from .models import Product, Category, ProductImage, ProductReview
+from .serializers import ProductSerializer, CategorySerializer, ProductReviewSerializer
 from rest_framework import permissions
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.decorators import action
@@ -74,3 +74,15 @@ class ProductViewSet(viewsets.ModelViewSet):
     #     # Return a success response
     #     return Response({'message': f'Images uploaded successfully for product {product.id}'},
     #                     status=status.HTTP_200_OK)
+
+
+class ProductReviewViewSet(viewsets.ModelViewSet):
+    queryset = ProductReview.objects.all()
+    serializer_class = ProductReviewSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return ProductReview.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
